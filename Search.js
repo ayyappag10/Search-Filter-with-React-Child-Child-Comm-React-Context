@@ -1,4 +1,5 @@
 import React from "react"
+import Theme from "./Theme";
 
 class Search extends React.Component{
     constructor(props)
@@ -23,12 +24,16 @@ class Search extends React.Component{
     render(){
         return(
             <div>
-                <input
-                placeholder="search from list.."
-                value={this.state.name}
-                onChange={this.nameChangeHandler}
-                >
-                </input>
+                <Theme.Consumer>
+                    {(thm)=>(
+                    <input
+                         placeholder="search from list.."
+                        value={this.state.name}
+                        style = {{color:thm}}
+                        onChange={this.nameChangeHandler}
+                    >
+                    </input>)}
+                    </Theme.Consumer>                
             </div>
         )
     }

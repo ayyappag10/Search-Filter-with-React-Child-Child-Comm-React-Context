@@ -1,4 +1,5 @@
 import React from "react"
+import Theme from "./Theme"
 
 class CountryList extends React.Component{
     constructor(props){
@@ -34,10 +35,18 @@ class CountryList extends React.Component{
             return(
                 newList.map((elem,ind)=>{
                     return(
-                        <div
-                        key={ind}>
-                            {elem}
-                        </div>
+                        <Theme.Consumer>
+                            {
+                                (thm)=>(
+                                    <div
+                                    key={ind}
+                                    style={{color: thm}}>
+                                        {elem}
+                                    </div>
+                                )
+                            }
+                        </Theme.Consumer>
+
                     )
                 })
             )
